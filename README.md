@@ -19,7 +19,7 @@ Built for explaining results of the paper :
 
 
 
-# to modify the front end
+
 Requires:  
 Cassandra database setup - Table formats are present in cqls/create_tables. Data can be written using write_to_db.py. The sample files required are stored in data/ folder.
 
