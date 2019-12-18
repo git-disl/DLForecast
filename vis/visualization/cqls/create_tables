@@ -1,0 +1,25 @@
+create table transactions (
+add_id int,
+block_id int,
+nbr_id int,
+txid int,
+role text,
+amount float,
+timestamp timestamp,
+primary key ((add_id, block_id), txid, nbr_id));
+
+create table node_info (
+add_id int,
+num_txs int,
+add_hash text,
+in_deg int,
+out_deg int,
+first_active timestamp,
+last_active timestamp,
+primary key (add_id));
+
+create table vector_embeddings(
+add_id int,
+vector list<float>,
+primary key (add_id)
+);

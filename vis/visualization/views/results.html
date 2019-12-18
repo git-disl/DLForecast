@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 80%;
+	}
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+	</style>
+</head>
+
+<body>
+<form method="post">
+  Node ID:<br>
+  <input type="text" name="node_id">
+  <input type="submit" name="submit_button">
+</form>
+<h2>Search results for node {{node_id}}!</h2>
+<table>
+<!-- Table headers -->
+    <th>
+        <tr>
+        <td>Node Id</td>
+        <td>Num transactions</td>
+        <td>First Active</td>
+        <td>Last Active</td>
+        <td>In Degree</td>
+        <td>Out Degree</td>
+		</tr>
+    </th>
+
+<!-- For loop logic of jinja template -->
+	<!-- table rows -->
+	<tr>
+	    <td>{{node_id}}</td>
+	    <td>{{node_info['num_txs']}}</td>
+	    <td>{{node_info['first_active']}}</td>
+	    <td>{{node_info['last_active']}}</td>
+	    <td>{{node_info['in_deg']}}</td>
+	    <td>{{node_info['out_deg']}}</td>
+
+	</tr>
+</table>
+
+<img src={{ url}} alt="Chart" height="420" width="420">
+<script>
+      $("#includedContent").load("/Users/shubhi/Bitcoin/gtcrypto/visualization/views/g.html");
+</script>
+<table>
+<!-- Table headers -->
+    <th>
+        <tr>
+        <td>Serial Number</td>
+        <td>Time</td>
+        <td>Amount (BTC)</td>
+        <td>Role</td>
+        <td>Neighbor NodeID</td>
+        <td>TXID</td>
+		</tr>
+    </th>
+
+<!-- For loop logic of jinja template -->
+	{%for i in range(0, len)%}
+
+	<!-- table rows -->
+	<tr>
+	    <td>{{i}}</td>
+	    <td>{{time_list[i]}}</td>
+	    <td>{{amount_list[i]}}</td>
+	    <td>{{role_list[i]}}</td>
+	    <td>{{nbr_id_list[i]}}</td>
+	    <td>{{txn_id_list[i]}}</td>
+
+	{%endfor%}
+
+	</tr>
+</table>
+
+</body>
+</html>
